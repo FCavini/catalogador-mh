@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Portal Catalogador MHI</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<div class="container">
+  <h1>Portal Catalogador MHI</h1>
+
+  <!-- Formulário para novos sinais -->
+  <div class="formulario">
+    <h2>Registrar Novo Sinal</h2>
+    <label>Ativo: <input type="text" id="inputAtivo"></label>
+    <label>DataHora: <input type="datetime-local" id="inputDataHora"></label>
+    <label>TipoEvento: <input type="text" id="inputTipo"></label>
+    <label>Resultado: 
+      <select id="inputResultado">
+        <option value="WIN">WIN</option>
+        <option value="LOSS">LOSS</option>
+      </select>
+    </label>
+    <button onclick="adicionarSinal()">Adicionar Sinal</button>
+  </div>
+
+  <!-- Filtros -->
+  <div class="filtros">
+    <label>Ativo: 
+      <select id="filtroAtivo">
+        <option value="Todos">Todos</option>
+      </select>
+    </label>
+    <label>Resultado: 
+      <select id="filtroResultado">
+        <option value="Todos">Todos</option>
+        <option value="WIN">WIN</option>
+        <option value="LOSS">LOSS</option>
+      </select>
+    </label>
+    <label>De: <input type="date" id="filtroDe"></label>
+    <label>Até: <input type="date" id="filtroAte"></label>
+    <button onclick="aplicarFiltros()">Aplicar Filtros</button>
+    <button onclick="exportarCSV()">Exportar CSV</button>
+  </div>
+
+  <!-- Tabela -->
+  <table id="catalogo">
+    <thead>
+      <tr>
+        <th>Ativo</th>
+        <th>DataHora</th>
+        <th>TipoEvento</th>
+        <th>Resultado</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+
+  <!-- Estatísticas -->
+  <div id="estatisticas"></div>
+
+  <!-- Gráfico -->
+  <canvas id="grafico" width="400" height="200"></canvas>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
